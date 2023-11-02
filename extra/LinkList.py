@@ -4,7 +4,7 @@ class ListNode(object):
         self.next = None
 
 
-class List(object):
+class LinkList(object):
     def __init__(self, node=None):
         self.head = node
     
@@ -33,7 +33,6 @@ class List(object):
         node = ListNode(item)
         node.next = self.head
         self.head = node
-        pass
     
     def append(self, item):
         # 从尾部添加元素
@@ -87,17 +86,18 @@ class List(object):
 
 
 if __name__ == '__main__':
-    l = List()
+    l = LinkList()
     print(l.is_empty())
     l.append(1)
     print(l.is_empty())
-    l.add(111)
     l.append(2)
+    l.add(111)
     l.append(3)
-    l.insert(0, 123)
+    l.append(4)
+    l.insert(-1, 123)
     l.insert(10, 823)
     l.travel()
     print(l.search(3310))
     l.remove(823)
     l.travel()
-    # print(l.length())
+    print(l.length())
