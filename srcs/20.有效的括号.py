@@ -13,18 +13,12 @@ class Solution:
             if bracket in ['(', '{', '[']:
                 stack.append(bracket)
             else:
-                if len(stack) > 0 and d[bracket] == bracket:
+                if len(stack) > 0 and d[bracket] == stack[-1]:
                     stack.pop()
                 else:
-                    print(bracket, d[bracket])
                     return False
             #print(stack)
         return len(stack) == 0
-                
-s = "()"
-print(Solution().isValid(s))
-                    
-
 
 # @lc code=end
 
