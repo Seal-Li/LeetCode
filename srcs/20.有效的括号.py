@@ -7,18 +7,23 @@
 # @lc code=start
 class Solution:
     def isValid(self, s: str) -> bool:
-        d = {")": "(", "]": "[", "}": "{"}
-        if s[0] in d: 
-            return False
         stack = []
+        d = {')': '(', ']': '[', '}': '{'}
         for bracket in s:
-            if bracket in d and stack and d[bracket] == bracket:
-                stack.pop()
-            elif bracket in d and not stack or bracket not in d:
+            if bracket in ['(', '{', '[']:
                 stack.append(bracket)
             else:
-                return False
-        return not stack
+                if len(stack) > 0 and d[bracket] == bracket:
+                    stack.pop()
+                else:
+                    print(bracket, d[bracket])
+                    return False
+            #print(stack)
+        return len(stack) == 0
+                
+s = "()"
+print(Solution().isValid(s))
+                    
 
 
 # @lc code=end
