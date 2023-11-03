@@ -7,17 +7,30 @@
 # @lc code=start
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        result = []
-        m = len(a) if len(a) < len(b) else len(b)
-        residual= 0
-        for i in range(m):
-            s = int(a[-(i+1)]) + int(b[-(i+1)]) + residual
-            if (s == 2):
-                residual = 1
-            else:
-                residual = 0
-                result.append[str(s)]
+        m, n = len(a), len(b)
+        if m < n:
+            a = "0" * (n - m) + a
+        else:
+            b = "0" * (m - n) + b
         
-        return "".join(result[::-1])
+        # 用l来记录结果
+        a, b = list(a), list(b)
+        res = 0
+        for i in range(max(n, m)-1, -1, -1):
+            s = int(a[i]) + int(b[i]) + res
+            if s < 2:
+                a[i] = str(s)
+                res = 0
+            elif s == 2:
+                a[i] = "0"
+                res = 1
+            elif s == 3:
+                a[i] = "1"
+                res = 1
+        # 判断最后是否需要进位
+        if res == 1:
+            a = ["1"] + a
+        return "".join(a)
+
 # @lc code=end
 
