@@ -7,10 +7,9 @@
 # @lc code=start
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        s = s.strip()
-        l = -1
-        while (s[l] != " ") and (-l <= len(s)):
-            l -= 1
-        return -l - 1
+        s = s.strip()[::-1]
+        needle = 0
+        while needle < len(s) and s[needle] != " ":
+            needle += 1
+        return needle
 # @lc code=end
-
