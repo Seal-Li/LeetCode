@@ -22,10 +22,10 @@ class LinkList(object):
         return count
     
     def travel(self):
-       cur = self.head
-       while cur is not None:
-           print(cur.val)
-           cur = cur.next
+        cur = self.head
+        while cur is not None:
+            print(cur.val)
+            cur = cur.next
     
     
     def add(self, item):
