@@ -8,3 +8,6 @@ def longestIncreamentSequence(nums):
             if nums[i] > nums[j]:
                 dp[i] = max(dp[i], dp[j]+1)
     return max(dp)
+
+nums = [2, 1, 0, 3, 7, 5, 11, 15, 6, 17, 20, 19]
+print(longestIncreamentSequence(nums))
